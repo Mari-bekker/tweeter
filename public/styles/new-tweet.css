@@ -1,0 +1,32 @@
+.new-tweet {
+  display: flex;
+  margin:auto;
+  width:70%;
+  flex-direction: column;
+
+
+}
+
+.counter {
+  float: right;
+  font-family: Bungee, sans-serif;
+
+}
+
+textarea {
+  width: 100%;
+  height: 90px;
+  padding: 5px;
+}
+
+.new-tweet > h2 {
+  border-bottom: 2px solid;
+  margin-top: 15px;
+}
+
+button {
+  background-color:#4056A1;
+  font-family: Bungee, sans-serif;
+  color: white;
+
+}
