@@ -50,7 +50,7 @@ main {
   padding: 5px;
   width:70%;
   margin: auto;
-  background-color: lightgrey;
+  background-color: #f4f1ec;
 }
 
 article:hover {
@@ -58,10 +58,11 @@ article:hover {
   
 }
 
-header {
+.tweet-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: #f4f1ec;
 }
 
 footer {
@@ -81,6 +82,6 @@ footer > #icons{
 
 }
 
-footer > #icons:hover {
+footer .fa-solid:hover {
   color: rgba(221, 173, 14, 0.836);
 }
