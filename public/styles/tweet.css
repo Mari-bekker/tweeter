@@ -24,6 +24,7 @@ article:hover {
 
 footer {
   display:flex;
+  padding: 5px;
   border-top: 2px solid;
   flex-direction: row;
   justify-content: space-between;
