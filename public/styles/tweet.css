@@ -1,0 +1,44 @@
+/*
+ * Tweet stylings
+ */
+ 
+ article{
+  border: 3px solid black;
+  padding: 5px;
+  width:70%;
+  margin: auto;
+  background-color: #f4f1ec;
+}
+
+article:hover {
+  box-shadow: 5px 10px #696666;
+  
+}
+
+.tweet-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f4f1ec;
+}
+
+footer {
+  display:flex;
+  border-top: 2px solid;
+  flex-direction: row;
+  justify-content: space-between;
+  
+
+}
+
+footer > #icons{
+
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #4056A1;
+
+}
+
+footer .fa-solid:hover {
+  color: rgba(221, 173, 14, 0.836);
+}
