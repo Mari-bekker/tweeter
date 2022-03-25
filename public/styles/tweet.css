@@ -20,6 +20,7 @@ article:hover {
   flex-direction: row;
   justify-content: space-between;
   background-color: #f4f1ec;
+  align-items: center;
 }
 
 footer {
@@ -42,4 +43,15 @@ footer > #icons{
 
 footer .fa-solid:hover {
   color: rgba(221, 173, 14, 0.836);
+}
+
+.user-name {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.avatar {
+  align-self: center;
+  margin-right: 10px;
 }
