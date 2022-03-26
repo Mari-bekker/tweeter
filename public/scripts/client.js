@@ -69,13 +69,13 @@ $( document ).ready(function() {
   renderTweets(data);
 
     //add an event listener for submit
-    $("postingTweet").submit(function( event ) {
+    $("#postingTweet").submit(function( event ) {
 
       //prevent the default form submission behaviour
       event.preventDefault();
 
-      //serialize the data inside the textarea
-      let textdata = $textarea.serialize();
+      //serialize the data inside the form
+      let textdata = $("#postingTweet").serialize();
 
       //use jQuery library to submit a POST request that sends the serialized data to the server
       $.ajax({
@@ -83,8 +83,6 @@ $( document ).ready(function() {
         url: "/tweets/",
         data: textdata,
         })
-
-        console.log(textdata)
     });
 });
 
