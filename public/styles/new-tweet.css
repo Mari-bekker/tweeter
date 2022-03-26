@@ -1,7 +1,7 @@
 .new-tweet {
   display: flex;
   margin:auto;
-  width:70%;
+  width:70%; 
   flex-direction: column;
 
 
@@ -30,3 +30,4 @@ button {
   color: white;
 
 }
+
