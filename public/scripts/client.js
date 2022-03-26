@@ -1,7 +1,6 @@
 /*
- * Client-side JS logic goes here
+ * Client-side JS logic
  * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 const data = [
   {
@@ -30,6 +29,7 @@ const data = [
 
 $( document ).ready(function() {
   console.log( "ready!" );
+
   const createTweetElement = function (tweetData) {
     const $tweet = `<article>
     <div class="tweet-header">
@@ -67,5 +67,25 @@ $( document ).ready(function() {
   }
 
   renderTweets(data);
+
+    //add an event listener for submit
+    $("#submit").on("click", function(event) {
+
+      //prevent the default form submission behaviour
+      event.preventDefault();
+
+      //serialize the data inside the textarea
+      let textdata = $textarea.serialize();
+
+      //use jQuery library to submit a POST request that sends the serialized data to the server
+      $.ajax({
+        type: "POST",
+        url: '/tweets',
+        data: textdata,
+        })
+    });
+
+
+
 });
 
