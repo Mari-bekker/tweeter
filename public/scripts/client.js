@@ -69,7 +69,7 @@ $( document ).ready(function() {
   renderTweets(data);
 
     //add an event listener for submit
-    $("#submit").on("click", function(event) {
+    $("postingTweet").submit(function( event ) {
 
       //prevent the default form submission behaviour
       event.preventDefault();
@@ -80,12 +80,11 @@ $( document ).ready(function() {
       //use jQuery library to submit a POST request that sends the serialized data to the server
       $.ajax({
         type: "POST",
-        url: '/tweets',
+        url: "/tweets/",
         data: textdata,
         })
+
+        console.log(textdata)
     });
-
-
-
 });
 
