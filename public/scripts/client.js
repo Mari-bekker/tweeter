@@ -37,7 +37,7 @@ $( document ).ready(function() {
 
     for (let i of tweets) {
       $tweet = createTweetElement(i);
-      $('#tweet-container').append($tweet); // can also use prepend for begining. 
+      $('#tweet-container').prepend($tweet);
     }
   }
 
@@ -63,6 +63,9 @@ $( document ).ready(function() {
         url: "/tweets/",
         data: textdata,
         })
+        .done(function() {
+          loadTweets();
+      })
 
       }
     });
@@ -83,4 +86,3 @@ $( document ).ready(function() {
     loadTweets();  
 
 });
-
