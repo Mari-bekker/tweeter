@@ -47,8 +47,15 @@ $( document ).ready(function() {
       //prevent the default form submission behaviour
       event.preventDefault();
 
-      //serialize the data inside the form
-      let textdata = $("#postingTweet").serialize();
+      let textLength = $("#tweet-text").val().length;
+      console.log(textLength);
+      if (textLength > 140) {
+        alert("Your tweet is over 140 characters, please be more succinct!")
+      } else if (textLength === 0) {
+        alert("You forgot to enter the tweet!")
+      } else {
+              
+      let textdata = $("#postingTweet").serialize(); //serialize the data inside the form
 
       //use jQuery library to submit a POST request that sends the serialized data to the server
       $.ajax({
@@ -56,6 +63,8 @@ $( document ).ready(function() {
         url: "/tweets/",
         data: textdata,
         })
+
+      }
     });
 
     const loadTweets = function () {
