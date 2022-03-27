@@ -34,6 +34,7 @@ $( document ).ready(function() {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
+    $("#tweet-container").empty();
 
     for (let i of tweets) {
       $tweet = createTweetElement(i);
@@ -73,12 +74,13 @@ $( document ).ready(function() {
     const loadTweets = function () {
       // fetch tweets from the http://localhost:8080/tweets page.
       // use jQuery to make a request to /tweets and receive the array of tweets as JSON.
+
       $.ajax({
         type: 'GET',
         url: "/tweets/",
         dataType: 'JSON'
       })
-      .done(function(data) {
+      .done(function(data) {      
           renderTweets(data)
       })
   
