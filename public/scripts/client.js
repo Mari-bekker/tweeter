@@ -16,7 +16,7 @@ $( document ).ready(function() {
       <div>${tweetData.user.handle}</div>
   
     </div>
-    ${tweetData.content.text}
+    ${escape(tweetData.content.text)}
     <footer>
       <div>${timeago.format(tweetData.created_at)}</div>
       <div id="icons">
@@ -28,6 +28,8 @@ $( document ).ready(function() {
   </article>`
   
   return $tweet;
+
+
   };
 
   const renderTweets = function(tweets) {
@@ -49,7 +51,6 @@ $( document ).ready(function() {
       event.preventDefault();
 
       let textLength = $("#tweet-text").val().length;
-      console.log(textLength);
       if (textLength > 140) {
         alert("Your tweet is over 140 characters, please be more succinct!")
       } else if (textLength === 0) {
@@ -57,6 +58,7 @@ $( document ).ready(function() {
       } else {
               
       let textdata = $("#postingTweet").serialize(); //serialize the data inside the form
+
 
       //use jQuery library to submit a POST request that sends the serialized data to the server
       $.ajax({
@@ -86,5 +88,11 @@ $( document ).ready(function() {
   
     }
     loadTweets();  
+
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
 
 });
