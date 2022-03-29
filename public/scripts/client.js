@@ -52,7 +52,9 @@ $( document ).ready(function() {
 
       let textLength = $("#tweet-text").val().length;
       if (textLength > 140) {
-        alert("Your tweet is over 140 characters, please be more succinct!")
+        $('.error').slideDown("slow");
+        $('#error-message').text("Your tweet is over 140 characters, please be more succinct!")
+        //alert("Your tweet is over 140 characters, please be more succinct!")
       } else if (textLength === 0) {
         alert("You forgot to enter the tweet!")
       } else {

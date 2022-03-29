@@ -52,6 +52,10 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <section class="error">
+          <i class="fa fa-times-circle"></i>
+          <div id ="error-message">Error</div>
+        </section>
         <h2>Compose Tweet</h2>
         <form id = "postingTweet" action="/tweets/" method="post">
           <label for="tweet-text">What are you humming about?</label>
@@ -63,8 +67,6 @@
         </form>
       </section>
       <section id ="tweet-container">
- 
-
       </section>
      
     </main>
