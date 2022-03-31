@@ -32,8 +32,12 @@ button {
 }
 
 .error {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
   color: #D8000C;
   background-color: #FFD2D2;
+  margin-top: 20px;
   border: #D8000C;
   border-color: #D8000C;
 }
