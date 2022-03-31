@@ -34,6 +34,7 @@ button {
 .error {
   color: #D8000C;
   background-color: #FFD2D2;
-  overflow: hidden;
+  border: #D8000C;
+  border-color: #D8000C;
 }
 

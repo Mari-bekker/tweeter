@@ -4,6 +4,8 @@
  */
 $( document ).ready(function() {
   console.log( "ready!" );
+  $('.error').hide();
+
 
   const createTweetElement = function (tweetData) {
     const $tweet = `<article>
@@ -38,8 +40,8 @@ $( document ).ready(function() {
     // takes return value and appends it to the tweets container
     $("#tweet-container").empty();
 
-    for (let i of tweets) {
-      $tweet = createTweetElement(i);
+    for (let tweet of tweets) {
+     const $tweet = createTweetElement(tweet);
       $('#tweet-container').prepend($tweet);
     }
   }
@@ -47,30 +49,31 @@ $( document ).ready(function() {
     //add an event listener for submit
     $("#postingTweet").submit(function( event ) {
 
-      //prevent the default form submission behaviour
+      //prevent the default form submission behaviour (prevent page refresh)
       event.preventDefault();
 
       let textLength = $("#tweet-text").val().length;
       if (textLength > 140) {
         $('.error').slideDown("slow");
         $('#error-message').text("Your tweet is over 140 characters, please be more succinct!")
-        //alert("Your tweet is over 140 characters, please be more succinct!")
       } else if (textLength === 0) {
-        alert("You forgot to enter the tweet!")
+        $('.error').slideDown("slow");
+        $('#error-message').text("You forgot to enter the tweet!")
       } else {
+        $('.error').slideUp("fast");
               
-      let textdata = $("#postingTweet").serialize(); //serialize the data inside the form
+        let textdata = $("#postingTweet").serialize(); //serialize the data inside the form
 
 
-      //use jQuery library to submit a POST request that sends the serialized data to the server
-      $.ajax({
-        type: "POST",
-        url: "/tweets/",
-        data: textdata,
-        })
-        .done(function() {
-          loadTweets();
-      })
+        //use jQuery library to submit a POST request that sends the serialized data to the server
+        $.ajax({
+          type: "POST",
+          url: "/tweets/",
+          data: textdata,
+          })
+          .done(function() {
+            loadTweets();
+        })      
 
       }
     });
@@ -81,7 +84,7 @@ $( document ).ready(function() {
 
       $.ajax({
         type: 'GET',
-        url: "/tweets/",
+        url: "/tweets",
         dataType: 'JSON'
       })
       .done(function(data) {      
