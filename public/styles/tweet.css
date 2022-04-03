@@ -29,6 +29,7 @@ footer {
   border-top: 2px solid;
   flex-direction: row;
   justify-content: space-between;
+  font-size: 15px;
 
 }
 
